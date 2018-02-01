@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Ranking</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+
+    <p><a href="/admin"">Gestionar</a></p>
+    <p><a href="/">Inicio</a></p>
+
+    <ol>
+        <li><a href="calcular/0">Negocios sin Estrellas</a></li>
+        <li><a href="calcular/1">Negocios Con 1 Estrella</a></li>
+        <li><a href="calcular/2">Negocios Con 2 Estrella</a></li>
+        <li><a href="calcular/3">Negocios Con 3 Estrella</a></li>
+        <li><a href="calcular/4">Negocios Con 4 Estrella</a></li>
+        <li><a href="calcular/5">Negocios Con 5 Estrella</a></li>
+    </ol>
+
+    <ol>
+        <h2>Revisar bóvedas, existe algún error</h2>
+        {% for shop in shops %}
+            {% if shop.error %}
+            <li><a href="{{ shop.url }}">{{ shop.name }}</a></li>
+            {% endif %}
+        {% endfor %}
+    </ol>
+
+    <ol>
+        <h2>Sin Bóveda</h2>
+        {% for shop in shops %}
+            {% if shop.vault == 0 and not shop.error %}
+            <li><a href="{{ shop.url }}">{{ shop.name }}</a></li>
+            {% endif %}
+        {% endfor %}
+    </ol>
+
+    <ol>
+        <h2>Sin Estrellas</h2>
+        {% for shop in shops %}
+            {% if shop.stars == 0 and shop.vault != 0 and not shop.error %}
+            <li><a href="{{ shop.url }}">{{ shop.name }}</a> - <a href="http://harrylatino.org/index.php?showtopic={{ shop.vault }}">Bóveda #{{ shop.vault }}</a></li>
+            {% endif %}
+        {% endfor %}
+    </ol>
+
+    <ol>
+	    <h2>Una Estrella</h2>
+        {% for shop in shops %}
+            {% if shop.stars == 1 and shop.vault != 0 and not shop.error %}
+            <li><a href="{{ shop.url }}">{{ shop.name }}</a> - <a href="http://harrylatino.org/index.php?showtopic={{ shop.vault }}">Bóveda #{{ shop.vault }}</a></li>
+            {% endif %}
+	    {% endfor %}
+    </ol>
+
+    <ol>
+        <h2>Dos Estrellas</h2>
+        {% for shop in shops %}
+            {% if shop.stars == 2 and shop.vault != 0 and not shop.error %}
+            <li><a href="{{ shop.url }}">{{ shop.name }}</a> - <a href="http://harrylatino.org/index.php?showtopic={{ shop.vault }}">Bóveda #{{ shop.vault }}</a></li>
+            {% endif %}
+        {% endfor %}
+    </ol>
+
+    <ol>
+        <h2>Tres Estrellas</h2>
+        {% for shop in shops %}
+            {% if shop.stars == 3 and shop.vault != 0 and not shop.error %}
+            <li><a href="{{ shop.url }}">{{ shop.name }}</a> - <a href="http://harrylatino.org/index.php?showtopic={{ shop.vault }}">Bóveda #{{ shop.vault }}</a></li>
+            {% endif %}
+        {% endfor %}
+    </ol>
+
+    <ol>
+        <h2>Cautro Estrellas</h2>
+        {% for shop in shops %}
+            {% if shop.stars == 4 and shop.vault != 0 and not shop.error %}
+            <li><a href="{{ shop.url }}">{{ shop.name }}</a> - <a href="http://harrylatino.org/index.php?showtopic={{ shop.vault }}">Bóveda #{{ shop.vault }}</a></li>
+            {% endif %}
+        {% endfor %}
+    </ol>
+
+    <ol>
+        <h2>Cinco Estrellas</h2>
+        {% for shop in shops %}
+            {% if shop.stars == 5 and shop.vault != 0 and not shop.error %}
+            <li><a href="{{ shop.url }}">{{ shop.name }}</a> - <a href="http://harrylatino.org/index.php?showtopic={{ shop.vault }}">Bóveda #{{ shop.vault }}</a> - {{ shop.stars }}</li>
+            {% endif %}
+        {% endfor %}
+    </ol>
+
+
+
+</body>
+</html>
