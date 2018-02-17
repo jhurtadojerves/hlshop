@@ -5,6 +5,7 @@ from import_export.admin import ImportExportMixin
 
 from .models import Shop
 
+
 class ShopResource(resources.ModelResource):
     class Meta:
         model = Shop

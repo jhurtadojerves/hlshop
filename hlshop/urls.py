@@ -14,13 +14,14 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.conf.urls import url
 
 from shop.views import ShopListView, CalculateView, ResetView
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', ShopListView.as_view(), name='index'),
-    path('calcular/<int:stars>', CalculateView.as_view(), name='calculate'),
-    path('reset', ResetView.as_view(), name='reset'),
+    url(r'^admin/', admin.site.urls),
+    url(r'^$', ShopListView.as_view(), name='index'),
+    url(r'^calcular/(?P<stars>[-\d ]+)$', CalculateView.as_view(), name='calculate'),
+    url(r'^reset$', ResetView.as_view(), name='reset'),
+
 ]
