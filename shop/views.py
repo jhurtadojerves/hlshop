@@ -45,6 +45,8 @@ class ResetView(View):
         shops = Shop.objects.all()
         for shop in shops:
             shop.checked = False
+            if shop.last_month:
+                shop.opened = False
             shop.last_month = False
             shop.save()
         messages.success(request, 'El sistema se encuentra listo para realizar el cálculo',

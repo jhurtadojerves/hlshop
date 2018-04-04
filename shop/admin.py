@@ -17,8 +17,8 @@ class ShopResource(resources.ModelResource):
 
 @admin.register(Shop)
 class ShopAdmin(ImportExportMixin, admin.ModelAdmin):
-    list_display = ['id', 'name', 'url', 'vault', 'stars', 'opened', 'checked', 'error', ]
-    list_editable = ['opened', 'checked', 'error', ]
-    list_filter = ['opened', 'opened', 'checked', 'stars', 'error', ]
+    list_display = ['id', 'name', 'url', 'vault', 'stars', 'opened', 'checked', 'error', 'last_month', ]
+    list_editable = ['opened', 'checked', 'error', 'last_month', ]
+    list_filter = ['opened', 'opened', 'checked', 'stars', 'error', 'last_month', ]
     search_fields = ['name', ]
     class_resource = ShopResource
