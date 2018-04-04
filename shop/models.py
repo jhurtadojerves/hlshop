@@ -9,6 +9,7 @@ class Shop(models.Model):
     opened = models.BooleanField(default=True)
     checked = models.BooleanField(default=False)
     error = models.BooleanField(default=False)
+    last_month = models.BooleanField(default=False)
 
     def __str__(self):
         return self.name

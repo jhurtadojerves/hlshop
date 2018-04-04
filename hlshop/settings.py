@@ -125,3 +125,4 @@ MEDIA_URL = '/media/'
 
 import dj_database_url
 DATABASES = {'default': dj_database_url.config()}
+MESSAGE_LEVEL = 10
