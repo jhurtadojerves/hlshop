@@ -13,7 +13,7 @@ class ShopListView(ListView):
     template_name = 'list.html'
     context_object_name = 'shops'
 
-    def get_object(self):
+    def get_queryset(self):
         queryset = Shop.objects.filter(opened=True).order_by('stars', 'name')
         return queryset
 
